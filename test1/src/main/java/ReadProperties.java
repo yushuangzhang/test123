@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 public class ReadProperties {
@@ -60,5 +62,46 @@ public class ReadProperties {
         return homeUrl;
 
     }
+    //URLTxt地址
+    public static String urlTxtPath(){
+        String urlTxtPath = "";
+        try{
+            //建立Properties对象
+            Properties prop = new Properties();
+            //获取文件流
+            InputStream ips = ReadProperties.class.getClassLoader().getResourceAsStream("test.properties");
+            //加载文件流
+            prop.load(ips);
+            urlTxtPath=prop.getProperty("urlTxtPath");
+            // ips.close();
 
+        }catch (Exception e){
+            //e.printStackTrace();
+            System.out.println(e);
+        }
+        return urlTxtPath;
+
+    }
+    public static String excelTxtPath(){
+        String excelTxtPath = "";
+        try{
+            //建立Properties对象
+            Properties prop = new Properties();
+            //获取文件流
+            InputStream ips = ReadProperties.class.getClassLoader().getResourceAsStream("test.properties");
+            //加载文件流
+            prop.load(ips);
+            excelTxtPath=prop.getProperty("excelTxtPath");
+            //设置乱码
+            excelTxtPath=new String(excelTxtPath.getBytes("ISO-8859-1"),"gbk");
+            //System.out.println("excel文件："+excelTxtPath);
+            // ips.close();
+
+        }catch (Exception e){
+            //e.printStackTrace();
+            System.out.println(e);
+        }
+        return excelTxtPath;
+
+    }
 }

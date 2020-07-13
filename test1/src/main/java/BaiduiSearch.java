@@ -1,4 +1,5 @@
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -6,14 +7,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+
 public class BaiduiSearch {
 
-    public static void main(String[] args) {
-       // restart();
-        search();
-
-
-    }
+//    public static void main(String[] args) {
+//       // restart();
+//        search();
+//
+//
+//    }
+    @Test
     public static void search(){
 
         try{
@@ -66,7 +69,8 @@ public class BaiduiSearch {
         String d=df.format(new Date());//2020-07-08
         String dHM=dfHM.format(new Date());//2020-07-08 16:09:39
         String currentDate=df.format(new Date());//2020-07-08
-        String filePath="D:\\IDEAProject\\"+currentDate+".txt";
+        String filePath=ReadProperties.urlTxtPath()+currentDate+".txt";
+       // System.out.println("filePath:"+filePath);
         //String dataTxt=dHM+"\r\n";
 
         FileWriter fw = null;

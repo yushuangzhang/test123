@@ -14,7 +14,7 @@ public class ExcelOperation {
             //获取输入流
             //同时支持Excel 2003、2007
             //Excel文件所在位置
-            File excelFile =  new File("D:\\IDEAProject\\搜索关键字.xlsx"); //创建文件对象
+            File excelFile =  new File(ReadProperties.excelTxtPath()); //创建文件对象
             FileInputStream is = new FileInputStream(excelFile); //文件流
             Workbook workbook = WorkbookFactory.create(is); //这种方式 Excel 2003/2007/2010 都是可以处理的
             int sheetCount = workbook.getNumberOfSheets();  //Sheet的数量
